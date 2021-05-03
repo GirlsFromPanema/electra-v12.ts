@@ -1,8 +1,11 @@
-export default (msg, client) => {
-    let p = client.prefix
+import { Message } from "discord.js";
+import { Client } from "../classes";
+
+export default (msg: Message, client: Client) => {
+    let p = client.config.prefix
     let l = [`<@!${client.user.id}>`, `<@${client.user.id}>`]
     if (l.includes(msg.content)) {
-        msg.send(`My prefix is \`${p}\``);
+        msg.channel.send(`My prefix is \`${p}\``);
     }
     l.forEach(r => {
         if (msg.content.toLowerCase().startsWith(r.toLowerCase())) {

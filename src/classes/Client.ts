@@ -1,22 +1,21 @@
-import { Client, Collection } from "discord.js"
+import { Client, ClientOptions, Collection } from "discord.js"
 import { readdirSync } from "fs"
 import { brandingColor } from "../consts"
 import Command from "./Command"
 
 export default class extends Client {
-    config: any;
+    config: { token: string, prefix: string, owners: string[] };
     commands: Collection<string, any>
     aliases: Collection<string, string>
     brandingColor: string;
-    prefix: string;
 
-    constructor(opts, config) {
+    constructor(opts: ClientOptions, config: { token: string, prefix: string, owners: string[] }) {
         super(opts)
         this.config = config
         this.commands = new Collection()
         this.aliases = new Collection()
-        this.prefix = config.prefix
         this.loadEvents()
+        this.loadCommands()
         this.brandingColor = brandingColor
     }
 

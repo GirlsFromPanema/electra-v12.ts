@@ -12,6 +12,7 @@ export default class Help extends Command {
     }
 
     async run(msg: Message, args: Array<string>) {
+        console.log(args, msg)
         if (!args[0]) {
             let commands = this.client.commands
             let help = {
