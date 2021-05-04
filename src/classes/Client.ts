@@ -1,13 +1,15 @@
-import { Client, ClientOptions, Collection } from "discord.js"
+import { Client, ClientOptions, Collection, Guild } from "discord.js"
 import { readdirSync } from "fs"
 import { brandingColor } from "../consts"
 import Command from "./Command"
+import quick from "quick.db-plus"
 
 export default class extends Client {
     config: { token: string, prefix: string, owners: string[] };
     commands: Collection<string, any>
     aliases: Collection<string, string>
     brandingColor: string;
+    db: any;
 
     constructor(opts: ClientOptions, config: { token: string, prefix: string, owners: string[] }) {
         super(opts)
@@ -16,6 +18,7 @@ export default class extends Client {
         this.aliases = new Collection()
         this.loadEvents()
         this.loadCommands()
+        this.db = new quick.db("Bot")
         this.brandingColor = brandingColor
     }
 
@@ -58,5 +61,19 @@ export default class extends Client {
 
     getCommand(name: string): Command {
         return this.commands.get(name) || this.commands.get(this.aliases.get(name));
+    }
+
+    parseChannelMention(str: string, guild: Guild) {
+        if (!str) return;;
+        if (!guild) return;
+        if (!str.startsWith("<#") && !str.endsWith(">")) return;
+        return guild.channels.cache.get(str.slice(2, -1))
+    }
+
+    parseRoleMention(str: string, guild: Guild) {
+        if (!str) return;;
+        if (!guild) return;
+        if (!str.startsWith("<@&") && !str.endsWith(">")) return;
+        return guild.roles.cache.get(str.slice(3, -1))
     }
 }

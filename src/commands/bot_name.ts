@@ -10,7 +10,7 @@ export default class Bot_name extends Command {
         this.client = client;
     }
 
-    async run(msg: Message, args: Array<string>) {
+    async run(msg: Message, args: string[]) {
         if (!args[0]) return msg.channel.send("Please send me a name to change my name!");
         try {
             this.client.user.setUsername(args.join(" "));
