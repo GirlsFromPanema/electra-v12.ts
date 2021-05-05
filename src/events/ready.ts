@@ -5,5 +5,6 @@ export default {
     once: true,
     execute(client: Client) {
         console.log(`Logged in as ${client.user.tag}!`)
+       
     }
 }

@@ -18,7 +18,7 @@ export default class Help extends Command {
                 color: this.client.brandingColor,
                 fields: [],
                 title: "Help",
-                description: `Heya! I'm ${this.client.user.tag}! Here are all my commands:`,
+                description: `Hey I'm ${this.client.user.tag}! Here are all my commands:`,
                 footer: {
                     text: "If you want to get more infos on a command, please do `help COMMAND_NAME`!"
                 },

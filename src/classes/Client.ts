@@ -4,14 +4,16 @@ import { brandingColor } from "../consts"
 import Command from "./Command"
 import quick from "quick.db-plus"
 
+type config = { token: string, prefix: string, owners: string[]}
+
 export default class extends Client {
-    config: { token: string, prefix: string, owners: string[] };
+    config: config;
     commands: Collection<string, any>
     aliases: Collection<string, string>
     brandingColor: string;
     db: any;
 
-    constructor(opts: ClientOptions, config: { token: string, prefix: string, owners: string[] }) {
+    constructor(opts: ClientOptions, config: config) {
         super(opts)
         this.config = config
         this.commands = new Collection()
