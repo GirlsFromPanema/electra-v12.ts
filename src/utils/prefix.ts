@@ -1,4 +1,4 @@
-import { Message } from "discord.js";
+import { Message } from "discord.js";   // Changing prefix by a command
 import { Client } from "../classes";
 
 export default (msg: Message, client: Client) => {
