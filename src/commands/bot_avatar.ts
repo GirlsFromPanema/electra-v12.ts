@@ -5,7 +5,7 @@ import { Message } from "discord.js"
 export default class Bot_avatar extends Command {
     constructor(client: Client) {
         super({
-            name: "bot_avatar",
+            name: "bot-avatar",
             description: "Changes the bot's avatar!"
         });
         this.client = client;
