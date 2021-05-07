@@ -27,7 +27,7 @@ export default class extends Client {
     start() {
         this.login(this.config.token)
     }
-
+    // Event Handler
     loadEvents() {
         const eventFiles = readdirSync(`${__dirname}/../events`).filter(file => file.endsWith('.js'));
         for (const file of eventFiles) {
@@ -41,7 +41,7 @@ export default class extends Client {
             }
         }
     }
-
+    // Command Handler
     loadCommands() {
         readdirSync(`${__dirname}/../commands`)
             .filter((f) => f.endsWith(".js"))
