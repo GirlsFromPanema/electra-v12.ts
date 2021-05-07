@@ -11,3 +11,6 @@ bot.message(content: 'Ping!') do |event|
   event.respond 'Pong!'
 end
 
+bot.message(content: MessageEmbed) do |Embed|
+  embed.send 'Ping' Gateway {ping}
+end
