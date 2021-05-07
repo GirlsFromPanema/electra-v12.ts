@@ -1,5 +1,5 @@
 import brandingColor from "./brandingColor"
 
 export {
-    brandingColor
+    brandingColor // from .ts file
 }
