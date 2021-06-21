@@ -1,1 +1,0 @@
-$pastebin::https://pastebin.com/
