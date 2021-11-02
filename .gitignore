@@ -2,4 +2,3 @@ node_modules
 bot.sqlite
 json.sqlite
 output
-config.json

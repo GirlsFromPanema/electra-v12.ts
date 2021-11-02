@@ -1,7 +1,7 @@
 import Client from "./Client";
 
 export default class Command {
-    name: string; description: string; owner: boolean; aliases: string[]; client: Client;
+    name: string; description: string; owner: boolean; cooldown: number; aliases: string[]; client: Client;
     constructor({
         name,
         description = "No description provided",

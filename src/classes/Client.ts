@@ -2,7 +2,7 @@ import { Client, ClientOptions, Collection, Guild } from "discord.js"
 import { readdirSync } from "fs"
 import { brandingColor } from "../consts"
 import Command from "./Command"
-import quick from "quick.db-plus"
+import quick from "quick.db"
 
 type config = { token: string, prefix: string, owners: string[]}
 
